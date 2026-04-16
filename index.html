@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RoastRoute - Artisanal Coffee Marketplace</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap');
+
+    :root {
+      --white: #ffffff;
+      --black: #000000;
+      --red: #E63946;
+      --lightgray: #F2F2F2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2 {
+      font-family: 'Bebas Neue', cursive;
+      text-transform: uppercase;
+      font-weight: normal;
+    }
+
+    h1 {
+      font-size: 3rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    section {
+      padding: 4rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+      border-bottom: 1px solid var(--lightgray);
+    }
+
+    p.tagline {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+      font-weight: 500;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-button {
+      background-color: var(--red);
+      color: var(--white);
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      border: none;
+      padding: 1rem 3rem;
+      cursor: pointer;
+      margin-top: 2rem;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .cta-button:hover, .cta-button:focus {
+      background-color: #c3343f;
+      outline: none;
+    }
+
+    form {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    input, select {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--black);
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    input:focus, select:focus {
+      outline: 2px solid var(--red);
+    }
+
+    label {
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      font-size: 0.875rem;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: var(--lightgray);
+      margin: 3rem 0;
+    }
+
+    .form-success, .form-error {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      font-size: 1rem;
+    }
+
+    .form-success {
+      color: green;
+    }
+
+    .form-error {
+      color: red;
+    }
+
+    @media (min-width: 768px) {
+      section {
+        padding: 6rem 2rem;
+      }
+      h1 {
+        font-size: 4rem;
+      }
+      h2 {
+        font-size: 3rem;
+      }
+      form {
+        max-width: 500px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>RoastRoute</h1>
+    <p class="tagline">From the Roasting Drum to Your Door in 48 Hours</p>
+    <a href="#coffee-lovers" class="cta-button">Start Your Route</a>
+  </header>
+
+  <section id="roasters">
+    <h2>Roasters</h2>
+    <p>Join RoastRoute to access a national audience without upfront costs. Showcase your small-batch roasts and get predictable monthly orders with our no sales, no fee guarantee.</p>
+    <form id="roasterForm">
+      <label for="roaster-name">Roaster Name</label>
+      <input type="text" id="roaster-name" name="roaster_name" required placeholder="Your roastery's name" />
+
+      <label for="location">Location</label>
+      <input type="text" id="location" name="location" required placeholder="City, State" />
+
+      <label for="specialty-roasts">Specialty Roasts</label>
+      <input type="text" id="specialty-roasts" name="specialty_roasts" placeholder="E.g. Washed Ethiopian, Natural Process" />
+
+      <label for="price-point">Price Point</label>
+      <input type="text" id="price-point" name="price_point" placeholder="$18 - $25 per bag" />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required placeholder="Your email address" />
+
+      <button type="submit" class="cta-button">Join the Network</button>
+      <p class="form-success" id="roasterSuccess" hidden>Thanks — we'll be in touch soon.</p>
+      <p class="form-error" id="roasterError" hidden>Oops, something went wrong. Please try again.</p>
+    </form>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section id="coffee-lovers">
+    <h2>Coffee Lovers</h2>
+    <p>Get early access to RoastRoute’s curated craft coffee subscription. Share your preferences and be the first to experience freshly roasted beans delivered monthly.</p>
+    <form id="enthusiastForm">
+      <label for="enthusiast-name">Name</label>
+      <input type="text" id="enthusiast-name" name="name" placeholder="Your full name" />
+
+      <label for="enthusiast-email">Email</label>
+      <input type="email" id="enthusiast-email" name="email" required placeholder="Your email address" />
+
+      <label for="coffee-preference">Coffee Preference</label>
+      <select id="coffee-preference" name="coffee_preference">
+        <option value="">Select your preference</option>
+        <option value="roast-to-order">Roast-to-order fresh beans</option>
+        <option value="single-origin">Single origin beans</option>
+        <option value="blends">Blends</option>
+        <option value="espresso">Espresso-focused roasts</option>
+      </select>
+
+      <label for="grind-preference">Grind Preference</label>
+      <select id="grind-preference" name="grind_preference">
+        <option value="">Select grind type</option>
+        <option value="whole-bean">Whole bean</option>
+        <option value="coarse">Coarse grind (French press)</option>
+        <option value="medium">Medium grind (drip coffee)</option>
+        <option value="fine">Fine grind (espresso)</option>
+      </select>
+
+      <button type="submit" class="cta-button">Join the Waitlist</button>
+      <p class="form-success" id="enthusiastSuccess" hidden>Thanks — you'll be among the first to know.</p>
+      <p class="form-error" id="enthusiastError" hidden>Oops, something went wrong. Please try again.</p>
+    </form>
+  </section>
+
+  <script>
+    const roasterForm = document.getElementById('roasterForm');
+    const roasterSuccess = document.getElementById('roasterSuccess');
+    const roasterError = document.getElementById('roasterError');
+
+    roasterForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      roasterSuccess.hidden = true;
+      roasterError.hidden = true;
+
+      const formData = new FormData(roasterForm);
+      const data = {};
+      formData.forEach((value, key) => { data[key] = value; });
+
+      // email is required validation
+      if (!data.email) {
+        roasterError.textContent = 'Email is required.';
+        roasterError.hidden = false;
+        return;
+      }
+
+      roasterForm.querySelector('button').disabled = true;
+
+      try {
+        const response = await fetch('https://app.baget.ai/api/public/databases/44022dcb-83ad-4200-9684-79b1220e8510/rows', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ data })
+        });
+        if (response.ok) {
+          roasterSuccess.hidden = false;
+          roasterForm.reset();
+        } else {
+          throw new Error('Request failed');
+        }
+      } catch (error) {
+        roasterError.textContent = 'Oops, something went wrong. Please try again.';
+        roasterError.hidden = false;
+      } finally {
+        roasterForm.querySelector('button').disabled = false;
+      }
+    });
+
+    const enthusiastForm = document.getElementById('enthusiastForm');
+    const enthusiastSuccess = document.getElementById('enthusiastSuccess');
+    const enthusiastError = document.getElementById('enthusiastError');
+
+    enthusiastForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      enthusiastSuccess.hidden = true;
+      enthusiastError.hidden = true;
+
+      const formData = new FormData(enthusiastForm);
+      const data = {};
+      formData.forEach((value, key) => { data[key] = value; });
+
+      if (!data.email) {
+        enthusiastError.textContent = 'Email is required.';
+        enthusiastError.hidden = false;
+        return;
+      }
+
+      enthusiastForm.querySelector('button').disabled = true;
+
+      try {
+        const response = await fetch('https://app.baget.ai/api/public/databases/a009e7cf-3c0b-4876-ada7-cf613c39e3cd/rows', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ data })
+        });
+        if (response.ok) {
+          enthusiastSuccess.hidden = false;
+          enthusiastForm.reset();
+        } else {
+          throw new Error('Request failed');
+        }
+      } catch (error) {
+        enthusiastError.textContent = 'Oops, something went wrong. Please try again.';
+        enthusiastError.hidden = false;
+      } finally {
+        enthusiastForm.querySelector('button').disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
